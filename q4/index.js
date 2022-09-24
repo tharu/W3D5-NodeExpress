@@ -16,7 +16,6 @@ app.get('/', (req, res) => {
     const date = new Date();
     const hour = date.getHours();
     const cssFile = hour >= 6 && hour <= 18 ? 'day.css' : 'night.css';
-    console.log(cssFile);
  res.send(`<html>
  <head>
      <meta charset="UTF-8">
@@ -40,9 +39,7 @@ app.listen(3000);
 
 app.post("/result",(req, res) =>{
  
-    let name = req.body.name;
-    let age = req.body.age;
-    console.log(`/output?name=${name}&age=${age}`);
+    const {name, age} = req.body; 
     res.redirect(`/output?name=${name}&age=${age}`);
 });
 
